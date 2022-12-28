@@ -1,4 +1,39 @@
 # c-sharp
+ // ================================ connection ==================================================
+        SqlConnection conn;
+        public static string connectString = @"DataSource = sdfsdf; Initial Dialog = Demo; Integrated Security = True;";
+        public bool Open(){
+                try{
+                        conn = new SqlConnection(connectString);
+                        conn.Open();
+                        return true
+                }catch(Exception ex){
+                      MessageBox.Show("connection Error"+ ex.Message);  
+                }
+                return false
+        
+        }
+        
+        public void Close(){
+                conn.Close();
+                conn.Dispose();    
+        }
+        
+        public SqlDataReader ExecuteReader(string sql){
+                try{
+                        SqlCommand cmd = new SqlCommand(sql, conn);
+                        SqlDataReader reader = cmd.ExecuteReader();
+                        return reader;
+                }catch(Exception ex){
+                        MessageBox.Show(ex.Message);
+                }
+                return null;
+        
+        
+        }
+ // ==================================================================================
+
+
         // ================================ EXCEL ==================================================
         #region //Các hàm xuất excel
         public static System.Data.DataSet getDataSet(DataTable dt)
