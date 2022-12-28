@@ -1,5 +1,11 @@
 # c-sharp
+
+
+
  // ================================ connection ==================================================
+ 
+ 
+ 
         SqlConnection conn;
         public static string connectString = @"DataSource = sdfsdf; Initial Dialog = Demo; Integrated Security = True;";
         public bool Open(){
